@@ -1,5 +1,6 @@
 license.json
 .DS_Store
+token-handler-api
 node_modules
 dist
 test/tmp/*.txt
