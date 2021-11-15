@@ -11,7 +11,6 @@
 #
 # Get the main Token Handler API (aka 'OAuth Agent')
 #
-cd ..
 rm -rf token-handler-api
 git clone https://github.com/curityio/bff-node-express token-handler-api
 if [ $? -ne 0 ]; then
