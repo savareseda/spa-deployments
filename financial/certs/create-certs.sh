@@ -35,7 +35,7 @@ ROOT_CERT_DESCRIPTION='Self Signed CA for example.com'
 #
 # SSL certificate parameters
 #
-SSL_CERT_FILE_PREFIX='example.com.ssl'
+SSL_CERT_FILE_PREFIX='example.com'
 SSL_CERT_PASSWORD='Password1'
 WILDCARD_DOMAIN_NAME='*.example.com'
 

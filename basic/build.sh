@@ -1,8 +1,13 @@
 #!/bin/bash
 
-############################################################
-# A script to build Token Handler resources in a basic setup
-############################################################
+##################################################################
+# A script to build Token Handler resources for the basic scenario
+#####1############################################################
+
+#
+# This is for Curity developers only
+#
+cp ../hooks/pre-commit ../.git/hooks
 
 #
 # Get and build the main Token Handler API (aka 'OAuth Agent')
@@ -36,3 +41,20 @@ fi
 #
 # Get the 'OAuth Proxy', which is a simple reverse proxy plugin
 #
+cd ..
+rm -rf kong-bff-plugin
+git clone https://github.com/curityio/kong-bff-plugin
+if [ $? -ne 0 ]; then
+  echo "Problem encountered downloading the BFF plugin"
+  exit 1
+fi
+
+#
+# Also download the phantom token plugin for the reverse proxy
+#
+rm -rf kong-phantom-token-plugin
+git clone https://github.com/curityio/kong-phantom-token-plugin
+if [ $? -ne 0 ]; then
+  echo "Problem encountered downloading the phantom token plugin"
+  exit 1
+fi
