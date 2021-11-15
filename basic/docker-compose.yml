@@ -34,7 +34,7 @@ services:
     image: token-handler-api:1.0.0
     hostname: api-internal.example.com
     volumes:
-      - ./token-handler-api/config.js:/usr/bff-api/dist/config.js
+      - ./token-handler-api/dist/config.js:/usr/bff-api/dist/config.js
 
   #
   # The Kong reverse proxy exposes API endpoints to the browser on port 3000

@@ -34,7 +34,7 @@ services:
     image: bff-api:1.0.0
     hostname: bffserver
     volumes:
-      - ./bff/config.js:/usr/bff-api/dist/config.js
+      - ./token-handler-api/dist/config.js:/usr/bff-api/dist/config.js
 
   #
   # The Kong reverse proxy exposes API endpoints to the browser on port 3000

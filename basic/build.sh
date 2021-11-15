@@ -18,7 +18,7 @@ if [ $? -ne 0 ]; then
   echo "Problem encountered downloading the token handler API"
   exit 1
 fi
-cp ./token-handler-api-config/config.js ./token-handler-api/src/config.js
+cp ./token-handler-api-config/config.js ./token-handler-api/dist/config.js
 
 cd token-handler-api
 npm install
