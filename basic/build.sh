@@ -12,12 +12,14 @@ cp ../hooks/pre-commit ../.git/hooks
 #
 # Get and build the main Token Handler API (aka 'OAuth Agent')
 #
+mv ./token-handler-api/config.js .
 rm -rf token-handler-api
 git clone https://github.com/curityio/bff-node-express token-handler-api
 if [ $? -ne 0 ]; then
   echo "Problem encountered downloading the token handler API"
   exit 1
 fi
+mv ./config.js ./token-handler-api/
 
 cd token-handler-api
 npm install
