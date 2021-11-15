@@ -39,8 +39,6 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
-git checkout https://github.com/curityio/bff-node-express token-handler-api
-
 #
 # Get the 'OAuth Proxy', which is a simple reverse proxy plugin
 #
