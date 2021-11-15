@@ -13,6 +13,11 @@ if [ ! -f './idsvr/license.json' ]; then
 fi
 
 #
+# Ensure that the token handler is updated with the scenario's configuration
+#
+cp ./token-handler-api-config/config.js ./token-handler-api/dist/config.js
+
+#
 # Spin up all containers, using the Docker Compose file, which applies the deployed configuration
 #
 docker compose --project-name spa up --force-recreate
