@@ -12,7 +12,7 @@
 # Get the main Token Handler API (aka 'OAuth Agent')
 #
 rm -rf token-handler-api
-git clone https://github.com/curityio/bff-node-express token-handler-api
+git clone https://github.com/curityio/token-handler-kotlin-spring-fapi token-handler-api
 if [ $? -ne 0 ]; then
   echo "Problem encountered downloading the token handler API"
   exit 1
