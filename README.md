@@ -1,7 +1,7 @@
 # SPA Deployments
 
 This repository manages deployment of the end-to-end solution for SPAs.\
-This includes the Token Handler and the Docker setup.
+This automates the setup of the Token Handler and the Docker components.
 
 ## Usage
 
