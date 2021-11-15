@@ -1,2 +1,12 @@
-# token-handler-deployments
-Code to manage deployment of back end resources for SPA code examples
+# SPA Deployments
+
+This repository manages deployment of the end-to-end solution for SPAs.\
+This includes the Token Handler and the Docker setup.
+
+## Usage
+
+From the SPA project perform the following steps:
+
+- Set up prerequisites
+- Run the ./code.sh script
+- Run the ./deploy.sh script
