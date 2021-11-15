@@ -7,6 +7,13 @@
 #
 # First generate OpenSSL certificates for development
 #
+cd certs
+./create-certs.sh
+if [ $? -ne 0 ]; then
+  echo "Problem encountered downloading the token handler API"
+  exit 1
+fi
+cd ..
 
 #
 # Get the main Token Handler API (aka 'OAuth Agent')

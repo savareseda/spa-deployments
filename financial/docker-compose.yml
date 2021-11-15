@@ -26,13 +26,13 @@ services:
       - ./api/config.json:/usr/api/config.json
 
   #
-  # The Token Handler API (OAuth Agent) provided by Curity is hosted here, to perform the OAuth work
-  # It runs on port 3001 inside the cluster at http://api-internal.example.com:3001
-  # The SPA accesses it via the reverse proxy at http://api.example.com:3000/token-handler
+  # The Back End for Front End API provided by Curity is hosted here, to perform the OAuth work
+  # It runs on port 3001 inside the cluster at http://bffserver:3001
+  # The SPA accesses it via the reverse proxy at http://api.example.com:3000/bff
   #
-  token-handler-api:
-    image: token-handler-api:1.0.0
-    hostname: api-internal.example.com
+  bff-api:
+    image: bff-api:1.0.0
+    hostname: bffserver
     volumes:
       - ./bff/config.js:/usr/bff-api/dist/config.js
 
