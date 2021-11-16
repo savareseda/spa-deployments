@@ -1,8 +1,23 @@
+Work from this folder to get components up before testing from the SPA
+
+FIRST
+-----
+1. Read up about Java deployment - resource files when deploying to Docker
+   Use environment variables to override configuration perhaps
+   Look at certificate I was provided with
+   Talk to Michal
+
+TODO
+----
+1. Get reverse proxy up with SSL and requests going through correctly
+   Find where SSL certs should go and whether I can use the p12 file?
+
+2. Set the Identity Server SSL certificates dynamically and get this URL working
+   Use Mutual TLS API approach of RESTCONF
+   https://login.example.com:8443/oauth/v2/oauth-anonymous/.well-known/openid-configuration
+
+ISSUES
+------
 1. Problem due to bff-node-express using a /bff path which breaks userInfo requests
    Tests work OK for the HTTP case
-
-2. Work from this project to get components up one by one
-
-3. Read up about Java deployment - resources files when deploying to Docker
-   Use environment variables to override configuration perhaps
-   Talk to Michal
+   Create a branch of both the SPA and the Node Express token handler
