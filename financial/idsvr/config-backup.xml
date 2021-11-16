@@ -329,11 +329,11 @@
                   <client-dn>CN=bff-kotlin-client, OU=Example, O=Curity AB, C=SE</client-dn>
                   <trusted-ca>bff_kotlin_client</trusted-ca>
                 </mutual-tls>
-                <redirect-uris>http://www.example.com/</redirect-uris>
+                <redirect-uris>https://www.example.com/</redirect-uris>
                 <scope>openid</scope>
                 <scope>profile</scope>
                 <user-authentication>
-                  <allowed-post-logout-redirect-uris>http://www.example.com/</allowed-post-logout-redirect-uris>
+                  <allowed-post-logout-redirect-uris>https://www.example.com/</allowed-post-logout-redirect-uris>
                 </user-authentication>
                 <capabilities>
                   <code>
@@ -477,7 +477,7 @@ GDl1wTV/7g==
     </caching-services>
   </facilities>
   <processing xmlns="https://curity.se/ns/conf/base">
-    <license-key>eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJDdXJpdHkgQUIgRVUiLCJzdWIiOiJDdXJpdHkgQUIiLCJJZCI6IlFBamFXUTc0YzNrTUxRNWVmY2ZZS2tGclR1WDltVlNXIiwiUHJvZHVjdCI6IklkZW50aXR5IFNlcnZlciIsIlZlcnNpb24iOiI0LjIiLCJGZWF0dXJlIjoiYXV0aG4sIG9hdXRoLCB1c2VyLW1hbmFnZW1lbnQsIHBsdWdpbnMsIGRhc2hib2FyZCIsIlRpZXIiOiJUcmlhbCIsIkdyYWNlIFBlcmlvZCI6IjAiLCJJc3N1ZSBEYXRlIjoiMjAyMS0wNy0zMCIsIkV4cGlyYXRpb24gRGF0ZSI6IjIwMjItMDctMzAiLCJFZGl0aW9uIjoiU3RhbmRhcmQiLCJHcm91cHMiOiIxIiwiRW52aXJvbm1lbnQiOiJNaWNoYWwgdGVzdCB3aXRoIFBBUiBhbmQgSkFSIiwiVHlwZSI6Ik5vbi1Qcm9kdWN0aW9uIiwiRmVhdHVyZXMiOlt7ImZlYXR1cmUiOiJhY3Rpb25zIiwicmVzdHJpY3Rpb25zIjpbXX0seyJmZWF0dXJlIjoiYWxhcm1zIiwicmVzdHJpY3Rpb25zIjpbXX0seyJmZWF0dXJlIjoiYXV0aGVudGljYXRvcnMiLCJyZXN0cmljdGlvbnMiOltdfSx7ImZlYXR1cmUiOiJjbGFpbXMtcHJvdmlkZXJzIiwicmVzdHJpY3Rpb25zIjpbXX0seyJmZWF0dXJlIjoiY2x1c3RlciIsInJlc3RyaWN0aW9ucyI6W119LHsiZmVhdHVyZSI6ImRhdGEtc291cmNlcyIsInJlc3RyaWN0aW9ucyI6W119LHsiZmVhdHVyZSI6ImV2ZW50LWxpc3RlbmVycyIsInJlc3RyaWN0aW9ucyI6W119LHsiZmVhdHVyZSI6ImhhYXBpIiwicmVzdHJpY3Rpb25zIjpbXX0seyJmZWF0dXJlIjoibWV0cmljcyIsInJlc3RyaWN0aW9ucyI6W119LHsiZmVhdHVyZSI6InByb2ZpbGVzIiwicmVzdHJpY3Rpb25zIjpbImF1dGg6YXV0aGVudGljYXRpb24tc2VydmljZSIsImFzOm9hdXRoLXNlcnZpY2UiLCJ1bTp1c2VyLW1hbmFnZW1lbnQtc2VydmljZSJdfSx7ImZlYXR1cmUiOiJiYWNrY2hhbm5lbC1hdXRoZW50aWNhdG9ycyIsInJlc3RyaWN0aW9ucyI6W119LHsiZmVhdHVyZSI6ImZpbmFuY2lhbC1ncmFkZSIsInJlc3RyaWN0aW9ucyI6W119LHsiZmVhdHVyZSI6ImRhc2hib2FyZCIsInJlc3RyaWN0aW9ucyI6W119XSwiaWF0IjoxNjI3NjAzMjAwLCJuYmYiOjE2Mjc2MDMyMDAsImV4cCI6MTY1OTEzOTIwMH0.o3x449RG3V_4q66W0ngvOb5xJvEyjZiC4cMcDXBu5QKZTMCWkX1qSAxBHpu1BEUwnK9hFbMwVG3D2XN_vreKnH_GpdGm3ZA8RvI2C4UfGwJ5eIDLuxCZ6OXUNe35Es2JNylMUCYzeiDTcXfj8kR1ng0H2KeOVNRp6wYXvfkBRb7vmD2Tx8HFvwZw5RtR1h4LvuWDZTjuvPlgIsIRk6utN8aYDSAzP133s4CptxPvHjx_8qt2dVS6oOkbdusAmRMLxtVVpWHwt_e5DX51_4alhfZuYzhS-KtQxmEyQolyQb1CNhZv4V7j5cLtnu47ehOeoDjwTRaj9QQNUDshjhFwuQ</license-key>
+    <license-key></license-key>
     <account-managers>
       <account-manager>
         <id>default-account-manager</id>

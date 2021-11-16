@@ -4,20 +4,20 @@ _transform: true
 services:
 
 #
-# The route for the BFF API is seen by the SPA as http://api.example.com/bff
+# The route for the token handler API is seen by the SPA as http://api.example.com/tokenhandler
 #
 - name: bff-api
-  url: http://bffserver:3001/bff
+  url: http://tokenhandlerapi:3001/bff
   routes:
-  - name: bff-api-route
+  - name: tokenhandler-api-route
     paths:
-    - /bff
+    - /tokenhandler
 
 #
 # The route for the business API is seen by the SPA as http://api.example.com/api
 #
 - name: business-api
-  url: http://apiserver:3002
+  url: http://businessapi:3002
   routes:
   - name: business-api-route
     paths:
@@ -36,7 +36,7 @@ services:
   # 2. The phantom token plugin will run after the secure cookie plugin, to introspect tokens
   - name: phantom-token
     config:
-      introspection_endpoint: http://curityserver:8443/oauth/v2/oauth-introspect
+      introspection_endpoint: http://login-internal.example.com:8443/oauth/v2/oauth-introspect
       client_id: api-gateway-client
       client_secret: Password1
       token_cache_seconds: 900

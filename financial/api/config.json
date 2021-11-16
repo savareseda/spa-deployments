@@ -1,5 +1,7 @@
 {
     "port": 3002,
-    "trustedWebOrigin": "http://www.example.com",
-    "jwksUrl": "http://curityserver:8443/oauth/v2/oauth-anonymous/jwks"
+    "trustedWebOrigin": "https://www.example.com",
+    "jwksUrl": "https://login-internal.example.com:8443/oauth/v2/oauth-anonymous/jwks",
+    "keystoreFilePath": "./certs/example.com.p12",
+    "keystorePassword": "Password1"
 }

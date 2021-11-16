@@ -36,5 +36,5 @@ exports.config = {
     trustedWebOrigins: ['http://www.example.com'],
     authorizeEndpoint: 'http://login.example.com:8443/oauth/v2/oauth-authorize',
     logoutEndpoint: 'http://login.example.com:8443/oauth/v2/oauth-session/logout',
-    tokenEndpoint: 'http://curityserver:8443/oauth/v2/oauth-token',
+    tokenEndpoint: 'http://login-internal.example.com:8443/oauth/v2/oauth-token',
 };

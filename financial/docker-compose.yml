@@ -6,42 +6,49 @@ services:
   #
   webhost:
     image: webhost:1.0.0
-    hostname: www.example.com
+    hostname: webhost
     ports:
-      - 80:3000
+      - 443:3000
     volumes:
+      - ./webhost/config.json:/usr/webhost/config.json
       - ./spa/config.json:/usr/webhost/content/config.json
+      - ./certs/example.com.p12:/usr/webhost/certs/example.com.p12
     environment:
       NODE_ENV: 'production'
 
   #
   # Deploy the example business API, which is a simple API that just validates JWTs
-  # It runs on port 3002 inside the cluster at http://apiserver:3002
-  # The SPA accesses it via the reverse proxy at http://api.example.com:3000/api
+  # It runs on port 3002 inside the cluster at https://api-internal.example.com:3002
+  # The SPA accesses it via the reverse proxy at https://api.example.com:3000/api
   #
-  example-api:
-    image: example-api:1.0.0
-    hostname: apiserver
+  business-api:
+    image: business-api:1.0.0
+    hostname: api-internal.example.com
     volumes:
       - ./api/config.json:/usr/api/config.json
+      - ./certs/example.com.p12:/usr/api/certs/example.com.p12
+      - ./certs/example.com.ca.pem:/usr/api/certs/example.com.ca.pem
+    environment:
+      NODE_EXTRA_CA_CERTS: '/usr/api/certs/example.com.ca.pem'
 
   #
-  # The Back End for Front End API provided by Curity is hosted here, to perform the OAuth work
-  # It runs on port 3001 inside the cluster at http://bffserver:3001
-  # The SPA accesses it via the reverse proxy at http://api.example.com:3000/bff
+  # The Token Handler API (OAuth Agent) provided by Curity is hosted here, to perform the OAuth work
+  # It runs on port 3001 inside the cluster at https://tokenhandler-internal.example.com:3001
+  # The SPA accesses it via the reverse proxy at https://api.example.com:3000/tokenhandler
   #
   token-handler-api:
     image: token-handler-financial:1.0.0
-    hostname: bffserver
+    hostname: tokenhandler-internal.example.com
     volumes:
-      - ./token-handler-api/dist/config.js:/usr/bff-api/dist/config.js
+      - ./certs/example.com.p12:/usr/api/certs/example.com.p12
+      - ./certs/example.com.ca.pem:/usr/api/certs/example.com.ca.pem
 
   #
-  # The Kong reverse proxy exposes API endpoints to the browser on port 3000
+  # The Kong reverse proxy exposes API endpoints to the browser at https://api.example.com:3000
   #
   reverse-proxy:
     image: kong:2.5.0-alpine
-    hostname: api.example.com
+    hostname: reverseproxy
     ports:
       - 3000:3000
     volumes:
@@ -73,7 +80,7 @@ services:
   #
   curity-idsvr:
     image: curity.azurecr.io/curity/idsvr:6.5.0
-    hostname: curityserver
+    hostname: login-internal.example.com
     ports:
      - 6749:6749
      - 8443:8443
