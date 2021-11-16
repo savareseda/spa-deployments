@@ -1,0 +1,8 @@
+1. Problem due to bff-node-express using a /bff path which breaks userInfo requests
+   Tests work OK for the HTTP case
+
+2. Work from this project to get components up one by one
+
+3. Read up about Java deployment - resources files when deploying to Docker
+   Use environment variables to override configuration perhaps
+   Talk to Michal

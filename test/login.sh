@@ -4,8 +4,7 @@
 # Basic automation to get tokens from the Authorization Server
 ##############################################################
 
-BFF_API_BASE_URL='http://api.example.com:3000/bff'
-#BFF_API_BASE_URL='http://api.example.com:3001'
+BFF_API_BASE_URL='http://api.example.com:3000/tokenhandler'
 WEB_BASE_URL='http://www.example.com'
 AUTHORIZATION_SERVER_BASE_URL='http://login.example.com:8443'
 RESPONSE_FILE=tmp/response.txt

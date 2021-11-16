@@ -4,8 +4,7 @@
 # Tests to run against token handler endpoints outside the browser
 ##################################################################
 
-BFF_API_BASE_URL='http://api.example.com:3000/bff'
-#BFF_API_BASE_URL='http://api.example.com:3001'
+BFF_API_BASE_URL='http://api.example.com:3000/tokenhandler'
 WEB_BASE_URL='http://www.example.com'
 RESPONSE_FILE=tmp/response.txt
 MAIN_COOKIES_FILE=tmp/main_cookies.txt
