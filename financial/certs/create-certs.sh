@@ -106,4 +106,4 @@ echo '*** Successfully exported SSL certificate to a PKCS#12 file'
 # Remove files we no longer need
 #
 rm example.srl
-rm example.com.ssl.csr
+rm example.com.csr

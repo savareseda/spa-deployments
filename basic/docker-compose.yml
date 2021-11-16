@@ -10,6 +10,7 @@ services:
     ports:
       - 80:3000
     volumes:
+      - ./webhost/config.json:/usr/webhost/config.json
       - ./spa/config.json:/usr/webhost/content/config.json
     environment:
       NODE_ENV: 'production'
@@ -31,7 +32,7 @@ services:
   # The SPA accesses it via the reverse proxy at http://api.example.com:3000/token-handler
   #
   token-handler-api:
-    image: token-handler-api:1.0.0
+    image: token-handler-basic:1.0.0
     hostname: bffserver
     volumes:
       - ./token-handler-api/dist/config.js:/usr/bff-api/dist/config.js

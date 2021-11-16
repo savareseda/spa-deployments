@@ -31,7 +31,7 @@ services:
   # The SPA accesses it via the reverse proxy at http://api.example.com:3000/bff
   #
   token-handler-api:
-    image: token-handler-api:1.0.0
+    image: token-handler-financial:1.0.0
     hostname: bffserver
     volumes:
       - ./token-handler-api/dist/config.js:/usr/bff-api/dist/config.js

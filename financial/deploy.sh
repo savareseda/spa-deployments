@@ -8,7 +8,7 @@
 # First check prerequisites
 #
 if [ ! -f './idsvr/license.json' ]; then
-  echo "Please provide a license.json file in the deployment/idsvr folder in order to deploy the system"
+  echo "Please provide a license.json file in the financial/idsvr folder in order to deploy the system"
   exit 1
 fi
 
