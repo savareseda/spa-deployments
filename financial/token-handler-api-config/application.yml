@@ -7,7 +7,7 @@ bff:
   encKey: 'NF65meV>Ls#8GP>;!Cnov)rIPRoK^.NP'
   salt: 'NF62meS>Ls%83P>;!Cdfv)rHTRoK!F)P'
   cookieNamePrefix: 'example'
-  bffEndpointsPrefix: 'bff'
+  bffEndpointsPrefix: 'tokenhandler'
   cookieSerializeOptions:
     httpOnly: true
     sameSite: true

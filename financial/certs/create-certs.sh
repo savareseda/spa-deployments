@@ -29,7 +29,7 @@ esac
 #
 # Root certificate parameters
 #
-TRUSTSTORE_FILE_PREFIX='example.com.ca'
+TRUSTSTORE_FILE_PREFIX='example.ca'
 TRUSTSTORE_PASSWORD='Password1'
 TRUSTSTORE_DESCRIPTION='Self Signed CA for example.com'
 

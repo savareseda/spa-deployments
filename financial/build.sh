@@ -52,6 +52,12 @@ if [ $? -ne 0 ]; then
 fi
 
 #
+# Build a temporary image to enable HTTP debugging
+#
+cd ../reverse-proxy
+docker build -f Dockerfile -t custom-kong:2.5.0-alpine .
+
+#
 # Get the 'OAuth Proxy', which is a simple reverse proxy plugin
 #
 cd ..

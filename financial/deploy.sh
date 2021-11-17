@@ -64,8 +64,3 @@ if [ "$HTTP_STATUS" != '204' ]; then
   echo "Problem encountered updating the runtime SSL certificate: $HTTP_STATUS"
   exit 1
 fi
-
-#
-# Provide a user prompt to run the test script
-#
-echo "System is ready for Mutual TLS connections ..."

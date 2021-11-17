@@ -2,14 +2,19 @@ Work from this folder to get components up, then test with the SPA
 
 INTEGRATION TASKS
 -----------------
-1. Get Kong using SSL
-   Find where SSL certs should go and whether I can use the p12 file?
+1. Get reverse proxy calling these URLs:
+   curl -k https://login-internal.example.com:8443/oauth/v2/oauth-anonymous/.well-known/openid-configuration
+   curl -k -i -X POST https://api-internal.example.com:3002/data
+   curl -k -i -X POST https://tokenhandler-internal.example.com:8080/login/start
 
 2. Get SPA basically running, though with some errors, especially around Mutual TLS
    I would expect redirects to basically work though
 
 3. Automate the client cert
    Improve the Dockerfile
+
+4. Run tests against both local and deployed api
+   Should certs live in the API project?
 
 ENVIRONMENT
 -----------

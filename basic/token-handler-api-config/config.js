@@ -25,7 +25,7 @@ exports.config = {
     scope: 'openid profile',
     encKey: 'NF65meV>Ls#8GP>;!Cnov)rIPRoK^.NP',
     cookieNamePrefix: 'example',
-    bffEndpointsPrefix: '/bff',
+    bffEndpointsPrefix: '/tokenhandler',
     cookieOptions: {
         httpOnly: true,
         sameSite: true,
