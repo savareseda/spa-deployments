@@ -1,23 +1,24 @@
 Work from this folder to get components up before testing from the SPA
 
-FIRST
------
-1. Read up about Java deployment - resource files when deploying to Docker
-   Use environment variables to override configuration perhaps
-   Look at certificate I was provided with
-   Talk to Michal
-
-TODO
-----
-1. Get reverse proxy up with SSL and requests going through correctly
-   Find where SSL certs should go and whether I can use the p12 file?
+SSL AVAILABILITY
+----------------
+1. Copy certs into Java project so that it starts OK
 
 2. Set the Identity Server SSL certificates dynamically and get this URL working
    Use Mutual TLS API approach of RESTCONF
    https://login.example.com:8443/oauth/v2/oauth-anonymous/.well-known/openid-configuration
 
-ISSUES
-------
-1. Problem due to bff-node-express using a /bff path which breaks userInfo requests
-   Tests work OK for the HTTP case
-   Create a branch of both the SPA and the Node Express token handler
+3. Get Kong using SSL
+   Find where SSL certs should go and whether I can use the p12 file?
+
+CERTS
+-----
+1. Get client cert created as for Michael's project
+
+ENVIRONMENT
+-----------
+1. Spring environment management reading
+   Use environment variables?
+
+2. Branch bff-node-express
+   Use a /tokenhandler path to fix userInfo requests
