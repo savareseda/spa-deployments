@@ -2,14 +2,14 @@ Work from this folder to get components up before testing from the SPA
 
 SSL AVAILABILITY
 ----------------
-1. Copy certs into Java project so that it starts OK
-
-2. Set the Identity Server SSL certificates dynamically and get this URL working
+1. Set the Identity Server SSL certificates dynamically and get this URL working
    Use Mutual TLS API approach of RESTCONF
    https://login.example.com:8443/oauth/v2/oauth-anonymous/.well-known/openid-configuration
 
-3. Get Kong using SSL
+2. Get Kong using SSL
    Find where SSL certs should go and whether I can use the p12 file?
+
+3. Get SPA basically running, though with some errors
 
 CERTS
 -----

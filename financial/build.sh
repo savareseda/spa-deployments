@@ -33,7 +33,11 @@ if [ $? -ne 0 ]; then
 fi
 
 cd token-handler-api
-git checkout non-blocking
+git checkout non-blocking-deployment
+
+cp ../token-handler-api-config/application.yml ./src/main/resources/
+cp ../certs/example.com.p12                    ./src/main/resources/
+cp ../certs/example.com.ca.p12                 ./src/main/resources/
 
 ./gradlew bootJar
 if [ $? -ne 0 ]; then
