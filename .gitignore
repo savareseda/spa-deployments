@@ -2,9 +2,7 @@ license.json
 token-handler-api
 kong-phantom-token-plugin
 kong-bff-plugin
-/financial/certs/*
-!/financial/certs/create-certs.sh
-!/financial/certs/server.ext
+financial/certs/example*
 node_modules
 dist
 test/tmp/*.txt
