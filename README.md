@@ -1,30 +1,38 @@
 # SPA Deployments
 
-Resources for end-to-end deployment of secure SPAs on a development computer.
+Supporting resources for deployment of SPA code examples which use the [Token Handler Pattern](https://curity.io/resources/learn/the-token-handler-pattern/).\
+The token handler manages OAuth work for the SPA and issues secure cookies to use in the browser:
+
+![Logical Components](/images/logical-components.png)
 
 ## Deployment Overview
 
-Deployment involves the following main steps:
+The token handler pattern requires additional supporting components to be deployed:
+
+![Deployed Components](/images/deployed-components.png)
+
+## Deployment Steps
+
+Deployment on development computer involves the following main steps:
 
 | Step | Description |
 | ---- | ----------- |
-| Prerequisites | See the section below on prerequisites needed |
-| Build Code | This builds code ready for deploying |
-| Configure SSL Trust | Ensure that development certificates are trusted |
-| Deploy the System | Deploy the Curity Identity Server and other supporting components |
-| Run a browser | Browse to the SPA URL and login as the preconfigured user account |
+| Prerequisites | Ensuring that the correct prerequisite tools are installed |
+| Build Code | Building code and dependencies into Docker images |
+| Configure SSL Trust | Ensuring that development certificates are trusted by the system |
+| Deploy the System | Deploying the Curity Identity Server and other supporting components |
+| Run the SPA | Browsing to the SPA and signing in as the preconfigured user account |
 
-## End-to-End Deployment
+## Running an End-to-End Flow
 
-Start with the [Main SPA repository](https://github.com/curityio/web-oauth-via-bff), and its README file.\
-The SPA deployment will use resources from this repository, and these scenarios are supported:
+Start with the main SPA repository, and follow the instructions in these pages:
 
-- Basic SPA using an Authorization Code Flow (PKCE) and a Client Secret
-- Financial-grade SPA using Mutual TLS, PAR and JARM
+- [Basic SPA using an Authorization Code Flow (PKCE) and a Client Secret](https://github.com/curityio/web-oauth-via-bff/doc/Basic.md)
+- [Financial-grade SPA using Mutual TLS, PAR and JARM](https://github.com/curityio/web-oauth-via-bff/doc/Financial.md)
 
 ## Token Handler Implementations
 
-Thr same SPA is used for both scenarios above, but with different token handlers:
+For a deeper understanding, the token handler can be run in isolation via these repos:
 
 - [Basic Token Handler in Node.js](https://github.com/curityio/bff-node-express)
 - [Financial-grade Token Handler in Kotlin](https://github.com/curityio/token-handler-kotlin-spring-fapi)
