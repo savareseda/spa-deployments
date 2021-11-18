@@ -19,6 +19,12 @@ if [ ! -f './idsvr/license.json' ]; then
 fi
 
 #
+# Set an environment variable to reference the root CA used for the development setup
+# This is passed through to the Docker Compose file and then to the config_backup.xml file
+#
+export FINANCIAL_GRADE_CLIENT_CA=$(openssl base64 -in './certs/example.ca.pem' | tr -d '\n')
+
+#
 # Spin up all containers, using the Docker Compose file, which applies the deployed configuration
 #
 docker compose --project-name spa up --detach --force-recreate --remove-orphans
@@ -38,7 +44,7 @@ done
 #
 # Add the SSL key and use the private key password to protect it in transit
 #
-export IDENTITY_SERVER_TLS_DATA=$(openssl base64 -in ./certs/example.com.p12 | tr -d '\n')
+export IDENTITY_SERVER_TLS_DATA=$(openssl base64 -in ./certs/example.server.p12 | tr -d '\n')
 echo "Updating SSL certificate ..."
 HTTP_STATUS=$(curl -k -s \
 -X POST "$RESTCONF_BASE_URL/base:facilities/crypto/add-ssl-server-keystore" \

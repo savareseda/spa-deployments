@@ -23,7 +23,13 @@ bff:
   tokenEndpoint: 'https://login-internal.example.com:8443/oauth/v2/oauth-token'
 
   ssl:
-    key-store: example.com.p12
+    key-store: ./certs/example.client.p12
     key-store-password: Password1
-    trust-store: example.com.ca.p12
+    trust-store: ./certs/example.ca.p12
     trust-store-password: Password1
+
+server:
+  port: 3001
+  ssl:
+    key-store: ./certs/example.server.p12
+    key-store-password: 'Password1'

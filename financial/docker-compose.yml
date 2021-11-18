@@ -12,7 +12,7 @@ services:
     volumes:
       - ./webhost/config.json:/usr/webhost/config.json
       - ./spa/config.json:/usr/webhost/content/config.json
-      - ./certs/example.com.p12:/usr/webhost/certs/example.com.p12
+      - ./certs/example.server.p12:/usr/webhost/certs/example.server.p12
     environment:
       NODE_ENV: 'production'
 
@@ -27,10 +27,10 @@ services:
     hostname: api-internal.example.com
     volumes:
       - ./api/config.json:/usr/api/config.json
-      - ./certs/example.com.p12:/usr/api/certs/example.com.p12
-      - ./certs/example.com.ca.pem:/usr/api/certs/example.com.ca.pem
+      - ./certs/example.ca.pem:/usr/api/certs/example.ca.pem
+      - ./certs/example.server.p12:/usr/api/certs/example.server.p12
     environment:
-      NODE_EXTRA_CA_CERTS: '/usr/api/certs/example.com.ca.pem'
+      NODE_EXTRA_CA_CERTS: '/usr/api/certs/example.ca.pem'
 
   #
   # The Token Handler API (OAuth Agent) provided by Curity is hosted here, to perform the OAuth work
@@ -42,10 +42,13 @@ services:
     image: token-handler-financial:1.0.0
     hostname: tokenhandler-internal.example.com
     volumes:
-      - ./certs/example.com.p12:/usr/api/certs/example.com.p12
-      - ./certs/example.com.ca.pem:/usr/api/certs/example.com.ca.pem
+      - ./certs/example.ca.pem:/usr/api/certs/example.ca.pem
+      - ./certs/example.ca.p12:/usr/api/certs/example.ca.p12
+      - ./certs/example.client.p12:/usr/api/certs/example.client.p12
+      - ./certs/example.server.p12:/usr/api/certs/example.server.p12
+      
     command: >
-      sh -c "keytool -import -alias example.com -keystore /usr/lib/jvm/zulu11-ca/lib/security/cacerts -file /usr/api/certs/example.com.ca.pem -storepass changeit -noprompt &&
+      sh -c "keytool -import -alias example.ca -keystore /usr/lib/jvm/zulu11-ca/lib/security/cacerts -file /usr/api/certs/example.ca.pem -storepass changeit -noprompt &&
              su apiuser &&
              java -jar /usr/api/backend-for-frontend-0.0.1-SNAPSHOT.jar"
     
@@ -62,16 +65,16 @@ services:
       - ./reverse-proxy/kong.yml:/usr/local/kong/declarative/kong.yml
       - ./kong-bff-plugin/plugin:/usr/local/share/lua/5.1/kong/plugins/bff-token
       - ./kong-phantom-token-plugin/plugin:/usr/local/share/lua/5.1/kong/plugins/phantom-token
-      - ./certs/example.com.pem:/usr/local/share/certs/example.com.pem
-      - ./certs/example.com.key:/usr/local/share/certs/example.com.key
-      - ./certs/example.com.ca.pem:/usr/local/share/certs/example.com.ca.pem
+      - ./certs/example.ca.pem:/usr/local/share/certs/example.ca.pem
+      - ./certs/example.server.key:/usr/local/share/certs/example.server.key
+      - ./certs/example.server.pem:/usr/local/share/certs/example.server.pem
     environment:
       KONG_DATABASE: 'off'
       KONG_DECLARATIVE_CONFIG: '/usr/local/kong/declarative/kong.yml'
       KONG_PROXY_LISTEN: '0.0.0.0:3000 ssl'
-      KONG_SSL_CERT: '/usr/local/share/certs/example.com.pem'
-      KONG_SSL_CERT_KEY: './usr/local/share/certs/example.com.key'
-      KONG_LUA_SSL_TRUSTED_CERTIFICATE: './usr/local/share/certs/example.com.ca.pem'
+      KONG_SSL_CERT: '/usr/local/share/certs/example.server.pem'
+      KONG_SSL_CERT_KEY: './usr/local/share/certs/example.server.key'
+      KONG_LUA_SSL_TRUSTED_CERTIFICATE: './usr/local/share/certs/example.ca.pem'
       KONG_LOG_LEVEL: 'info'
       KONG_PLUGINS: 'bundled,bff-token,phantom-token'
 
@@ -103,3 +106,4 @@ services:
      - ./idsvr/log4j2.xml:/opt/idsvr/etc/log4j2.xml
     environment:
       PASSWORD: 'Password1'
+      FINANCIAL_GRADE_CLIENT_CA: "${FINANCIAL_GRADE_CLIENT_CA}"
