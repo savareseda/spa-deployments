@@ -1,0 +1,6 @@
+{
+    "businessApiBaseUrl": "https://api.example.com:3000/api",
+    "oauth": {
+        "bffApiBaseUrl": "https://api.example.com:3000/tokenhandler"
+    }
+}

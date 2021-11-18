@@ -1,0 +1,109 @@
+version: '3.8'
+services:
+
+  #
+  # The web host simply serves static content
+  #
+  webhost:
+    image: webhost:1.0.0
+    hostname: webhost
+    ports:
+      - 443:3000
+    volumes:
+      - ./webhost/config.json:/usr/webhost/config.json
+      - ./spa/config.json:/usr/webhost/content/config.json
+      - ./certs/example.server.p12:/usr/webhost/certs/example.server.p12
+    environment:
+      NODE_ENV: 'production'
+
+  #
+  # Deploy the example business API, which is a simple API that just validates JWTs
+  # It runs on port 3002 inside the cluster at https://api-internal.example.com:3002
+  # The SPA accesses it via the reverse proxy at https://api.example.com:3000/api
+  # The API calls the Authorization Server's JWKS endpoint inside the cluster
+  #
+  business-api:
+    image: business-api:1.0.0
+    hostname: api-internal.example.com
+    volumes:
+      - ./api/config.json:/usr/api/config.json
+      - ./certs/example.ca.pem:/usr/api/certs/example.ca.pem
+      - ./certs/example.server.p12:/usr/api/certs/example.server.p12
+    environment:
+      NODE_EXTRA_CA_CERTS: '/usr/api/certs/example.ca.pem'
+
+  #
+  # The Token Handler API (OAuth Agent) provided by Curity is hosted here, to perform the OAuth work
+  # It runs on port 3001 inside the cluster at https://tokenhandler-internal.example.com:3001
+  # The SPA accesses it via the reverse proxy at https://api.example.com:3000/tokenhandler
+  # The Token Handler API calls the Authorization Server's token endpoint inside the cluster
+  #
+  token-handler-api:
+    image: token-handler-financial:1.0.0
+    hostname: tokenhandler-internal.example.com
+    volumes:
+      - ./certs/example.ca.pem:/usr/api/certs/example.ca.pem
+      - ./certs/example.ca.p12:/usr/api/certs/example.ca.p12
+      - ./certs/example.client.p12:/usr/api/certs/example.client.p12
+      - ./certs/example.server.p12:/usr/api/certs/example.server.p12
+      
+    command: >
+      sh -c "keytool -import -alias example.ca -keystore /usr/lib/jvm/zulu11-ca/lib/security/cacerts -file /usr/api/certs/example.ca.pem -storepass changeit -noprompt &&
+             su apiuser &&
+             java -jar /usr/api/backend-for-frontend-0.0.1-SNAPSHOT.jar"
+    
+  #
+  # The Kong reverse proxy exposes API endpoints to the browser at https://api.example.com:3000
+  # The reverse proxy calls the token handler API and the business API inside the cluster
+  #
+  reverse-proxy:
+    image: kong:2.5.0-alpine
+    hostname: reverseproxy
+    ports:
+      - 3000:3000
+    volumes:
+      - ./reverse-proxy/kong.yml:/usr/local/kong/declarative/kong.yml
+      - ./kong-bff-plugin/plugin:/usr/local/share/lua/5.1/kong/plugins/bff-token
+      - ./kong-phantom-token-plugin/plugin:/usr/local/share/lua/5.1/kong/plugins/phantom-token
+      - ./certs/example.ca.pem:/usr/local/share/certs/example.ca.pem
+      - ./certs/example.server.key:/usr/local/share/certs/example.server.key
+      - ./certs/example.server.pem:/usr/local/share/certs/example.server.pem
+    environment:
+      KONG_DATABASE: 'off'
+      KONG_DECLARATIVE_CONFIG: '/usr/local/kong/declarative/kong.yml'
+      KONG_PROXY_LISTEN: '0.0.0.0:3000 ssl'
+      KONG_SSL_CERT: '/usr/local/share/certs/example.server.pem'
+      KONG_SSL_CERT_KEY: './usr/local/share/certs/example.server.key'
+      KONG_LUA_SSL_TRUSTED_CERTIFICATE: './usr/local/share/certs/example.ca.pem'
+      KONG_LOG_LEVEL: 'info'
+      KONG_PLUGINS: 'bundled,bff-token,phantom-token'
+
+  #
+  # A SQL database used by the Curity Identity Server
+  #
+  curity-data:
+    image: postgres:13.2
+    hostname: dbserver
+    volumes:
+      - ./idsvr/data-backup.sql:/docker-entrypoint-initdb.d/data-backup.sql
+    environment:
+      POSTGRES_USER: 'postgres'
+      POSTGRES_PASSWORD: 'Password1'
+      POSTGRES_DB: 'idsvr'
+
+  #
+  # A standalone instance of the Curity Identity Server
+  #
+  curity-idsvr:
+    image: curity.azurecr.io/curity/idsvr:6.5.0
+    hostname: login-internal.example.com
+    ports:
+     - 6749:6749
+     - 8443:8443
+    volumes:
+     - ./idsvr/license.json:/opt/idsvr/etc/init/license/license.json
+     - ./idsvr/config-backup.xml:/opt/idsvr/etc/init/config.xml
+     - ./idsvr/log4j2.xml:/opt/idsvr/etc/log4j2.xml
+    environment:
+      PASSWORD: 'Password1'
+      FINANCIAL_GRADE_CLIENT_CA: "${FINANCIAL_GRADE_CLIENT_CA}"
