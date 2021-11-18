@@ -18,7 +18,8 @@ bff:
   trustedWebOrigins: [ 'https://www.example.com' ]
   issuer: 'https://login.example.com:8443/oauth/v2/oauth-anonymous'
   jwksUri: 'https://login-internal.example.com:8443/oauth/v2/oauth-anonymous/jwks'
-  authorizeEndpoint: 'https://login.example.com:8443/oauth/v2/oauth-authorize'
+  authorizeEndpoint: 'https://login-internal.example.com:8443/oauth/v2/oauth-authorize'
+  authorizeEndpointExternal: 'https://login.example.com:8443/oauth/v2/oauth-authorize'
   logoutEndpoint: 'https://login.example.com:8443/oauth/v2/oauth-session/logout'
   tokenEndpoint: 'https://login-internal.example.com:8443/oauth/v2/oauth-token'
 
