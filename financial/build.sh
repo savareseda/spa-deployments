@@ -5,6 +5,11 @@
 ############################################################################
 
 #
+# Ensure that we are in the folder containing this script
+#
+cd "$(dirname "${BASH_SOURCE[0]}")"
+
+#
 # This is for Curity developers only
 #
 cp ../hooks/pre-commit ../.git/hooks

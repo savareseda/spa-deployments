@@ -11,6 +11,11 @@ IDENTITY_SERVER_TLS_NAME='Identity_Server_TLS'
 PRIVATE_KEY_PASSWORD='Password1'
 
 #
+# Ensure that we are in the folder containing this script
+#
+cd "$(dirname "${BASH_SOURCE[0]}")"
+
+#
 # First check prerequisites
 #
 if [ ! -f './idsvr/license.json' ]; then
