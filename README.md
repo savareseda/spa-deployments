@@ -33,9 +33,9 @@ Start with the main SPA repository, and follow the instructions in these pages:
 - [Basic SPA using an Authorization Code Flow (PKCE) and a Client Secret](https://github.com/curityio/web-oauth-via-bff/doc/Basic.md)
 - [Financial-grade SPA using Mutual TLS, PAR and JARM](https://github.com/curityio/web-oauth-via-bff/doc/Financial.md)
 
-## Running the Token Handler without a Browser
+## Running a Token Handler without a Browser
 
-See the following repositories for further details on the token handler and how to run it:
+See the following repositories for further details on how to extend a token handler:
 
 - [Basic Token Handler in Node.js](https://github.com/curityio/bff-node-express)
 - [Financial-grade Token Handler in Kotlin](https://github.com/curityio/token-handler-kotlin-spring-fapi)
