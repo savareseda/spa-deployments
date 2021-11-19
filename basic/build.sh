@@ -25,6 +25,8 @@ if [ $? -ne 0 ]; then
 fi
 
 cd token-handler-api
+cp ../token-handler-api-config/config.ts ./token-handler-api/src/config.ts
+
 npm install
 if [ $? -ne 0 ]; then
   echo "Problem encountered installing the Token Handler API dependencies"
