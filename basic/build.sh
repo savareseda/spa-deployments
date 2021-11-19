@@ -26,7 +26,7 @@ fi
 
 cd token-handler-api
 git checkout dev
-cp ../token-handler-api-config/config.ts ./token-handler-api/src/
+cp ../token-handler-api-config/config.ts ./src/
 
 npm install
 if [ $? -ne 0 ]; then
