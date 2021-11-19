@@ -25,7 +25,8 @@ if [ $? -ne 0 ]; then
 fi
 
 cd token-handler-api
-cp ../token-handler-api-config/config.ts ./token-handler-api/src/config.ts
+git checkout dev
+cp ../token-handler-api-config/config.ts ./token-handler-api/src/
 
 npm install
 if [ $? -ne 0 ]; then
