@@ -1,5 +1,8 @@
 # SPA Deployments
 
+[![Quality](https://img.shields.io/badge/quality-experiment-red)](https://curity.io/resources/code-examples/status/)
+[![Availability](https://img.shields.io/badge/availability-source-blue)](https://curity.io/resources/code-examples/status/)
+
 Supporting resources for deployment of SPA code examples which use the [Token Handler Pattern](https://curity.io/resources/learn/the-token-handler-pattern/).\
 The token handler manages OAuth work for the SPA and issues secure cookies to use in the browser:
 

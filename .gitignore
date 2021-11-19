@@ -1,9 +1,6 @@
 license.json
 token-handler-api
-kong-phantom-token-plugin
 kong-bff-plugin
+kong-phantom-token-plugin
 financial/certs/example*
-node_modules
-dist
-test/tmp/*.txt
 .DS_Store
