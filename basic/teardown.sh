@@ -10,5 +10,5 @@
 cd "$(dirname "${BASH_SOURCE[0]}")"
 
 #
-# The basic token handler does not use detached mode so there is nothing to do
+# The standard token handler does not use detached mode so there is nothing to do
 #
