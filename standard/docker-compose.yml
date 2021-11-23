@@ -39,7 +39,7 @@ services:
     environment:
       PORT: 3001
       TRUSTED_WEB_ORIGIN: 'http://www.example.com'
-      AUTHORIZE_ENDPOINT: 'http://login-internal.example.com:8443/oauth/v2/oauth-authorize'
+      AUTHORIZE_ENDPOINT: 'http://login.example.com:8443/oauth/v2/oauth-authorize'
       TOKEN_ENDPOINT: 'http://login-internal.example.com:8443/oauth/v2/oauth-token'
       LOGOUT_ENDPOINT: 'http://login.example.com:8443/oauth/v2/oauth-session/logout'
       CLIENT_ID: 'spa-client'
