@@ -32,7 +32,7 @@ services:
   # The SPA accesses it via the reverse proxy at http://api.example.com:3000/tokenhandler
   #
   token-handler-api:
-    image: token-handler-basic:1.0.0
+    image: token-handler-standard:1.0.0
     hostname: tokenhandler-internal.example.com
     volumes:
       - ./token-handler-api/dist/config.js:/usr/bff-api/dist/config.js

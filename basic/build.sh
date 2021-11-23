@@ -1,8 +1,8 @@
 #!/bin/bash
 
-##################################################################
-# A script to build Token Handler resources for the basic scenario
-#####1############################################################
+#####################################################################
+# A script to build Token Handler resources for the standard scenario
+#####1###############################################################
 
 #
 # Ensure that we are in the folder containing this script
@@ -40,7 +40,7 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
-docker build -f Dockerfile -t token-handler-basic:1.0.0 .
+docker build -f Dockerfile -t token-handler-standard:1.0.0 .
 if [ $? -ne 0 ]; then
   echo "Problem encountered building the Token Handler API Docker file"
   exit 1

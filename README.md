@@ -30,14 +30,14 @@ Deployment on development computer involves the following main steps:
 
 Start with the main SPA repository, and follow the instructions in these pages:
 
-- [Basic SPA using an Authorization Code Flow (PKCE) and a Client Secret](https://github.com/curityio/web-oauth-via-bff/doc/Basic.md)
+- [Standard SPA using an Authorization Code Flow (PKCE) and a Client Secret](https://github.com/curityio/web-oauth-via-bff/doc/Standard.md)
 - [Financial-grade SPA using Mutual TLS, PAR and JARM](https://github.com/curityio/web-oauth-via-bff/doc/Financial.md)
 
 ## Running a Token Handler without a Browser
 
 See the following repositories for further details on how to extend a token handler:
 
-- [Basic Token Handler in Node.js](https://github.com/curityio/bff-node-express)
+- [Standard Token Handler in Node.js](https://github.com/curityio/bff-node-express)
 - [Financial-grade Token Handler in Kotlin](https://github.com/curityio/token-handler-kotlin-spring-fapi)
 
 ## More Information

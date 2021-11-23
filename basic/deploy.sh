@@ -1,8 +1,8 @@
 #!/bin/bash
 
-###################################################################
-# A script to deploy Token Handler resources for the basic scenario
-###################################################################
+######################################################################
+# A script to deploy Token Handler resources for the standard scenario
+######################################################################
 
 #
 # Ensure that we are in the folder containing this script
@@ -13,7 +13,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")"
 # First check prerequisites
 #
 if [ ! -f './idsvr/license.json' ]; then
-  echo "Please provide a license.json file in the basic/idsvr folder in order to deploy the system"
+  echo "Please provide a license.json file in the standard/idsvr folder in order to deploy the system"
   exit 1
 fi
 
