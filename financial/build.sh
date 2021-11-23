@@ -38,7 +38,6 @@ if [ $? -ne 0 ]; then
 fi
 
 cd token-handler-api
-git checkout dev
 ./gradlew bootJar
 if [ $? -ne 0 ]; then
   echo "Problem encountered building the Token Handler API's Java code"
