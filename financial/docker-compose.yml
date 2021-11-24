@@ -43,7 +43,6 @@ services:
     hostname: tokenhandler-internal.example.com
     volumes:
       - ./certs/example.ca.pem:/usr/api/certs/example.ca.pem
-      - ./certs/example.ca.p12:/usr/api/certs/example.ca.p12
       - ./certs/example.client.p12:/usr/api/certs/example.client.p12
       - ./certs/example.server.p12:/usr/api/certs/example.server.p12
     environment:
@@ -52,8 +51,7 @@ services:
       SERVER_CERT_P12_PASSWORD: 'Password1'
       CLIENT_CERT_P12_PATH: './certs/example.client.p12'
       CLIENT_CERT_P12_PASSWORD: 'Password1'
-      CA_CERT_P12_PATH: './certs/example.ca.p12'
-      CA_CERT_P12_PASSWORD: 'Password1'
+      CA_CERT_PEM_PATH: './certs/example.ca.pem'
       TRUSTED_WEB_ORIGIN: 'https://www.example.com'
       ISSUER: 'https://login.example.com:8443/oauth/v2/oauth-anonymous'
       JWKS_URI: 'https://login-internal.example.com:8443/oauth/v2/oauth-anonymous/jwks'
