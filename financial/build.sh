@@ -17,7 +17,7 @@ cp ../hooks/pre-commit ../.git/hooks
 #
 # Generate OpenSSL certificates for development
 #
-if [ ! -f './certs/example.ca.p12' ]; then
+if [ ! -f './certs/example.ca.pem' ]; then
   cd certs
   ./create-certs.sh
   if [ $? -ne 0 ]; then
