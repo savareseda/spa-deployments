@@ -21,7 +21,7 @@ if [ ! -f './certs/example.ca.pem' ]; then
   cd certs
   ./create-certs.sh
   if [ $? -ne 0 ]; then
-    echo "Problem encountered downloading the token handler API"
+    echo "Problem encountered creating and installing certificates for the Token Handler"
     exit 1
   fi
   cd ..
