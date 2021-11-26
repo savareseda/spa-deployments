@@ -25,7 +25,6 @@ if [ $? -ne 0 ]; then
 fi
 
 cd token-handler-api
-git checkout dev
 npm install
 if [ $? -ne 0 ]; then
   echo "Problem encountered installing the Token Handler API dependencies"
