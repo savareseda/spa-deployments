@@ -47,12 +47,19 @@ fi
 # Get the 'OAuth Proxy', which is a simple reverse proxy plugin
 #
 cd ..
-rm -rf kong-bff-plugin
-git clone https://github.com/curityio/kong-bff-plugin
+rm -rf oauth-proxy-plugin
+git clone https://github.com/curityio/kong-bff-plugin oauth-proxy-plugin
 if [ $? -ne 0 ]; then
-  echo "Problem encountered downloading the BFF plugin"
+  echo "Problem encountered downloading the OAuth proxy plugin"
   exit 1
 fi
+
+#
+# Temporary code OAuth proxy plugin changes are merged
+#
+cd oauth-proxy-plugin
+git checkout feature/nginx-lua-oauth-proxy-plugin
+cd ..
 
 #
 # Also download the phantom token plugin for the reverse proxy

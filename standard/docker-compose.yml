@@ -60,14 +60,14 @@ services:
       - 3000:3000
     volumes:
       - ./reverse-proxy/kong.yml:/usr/local/kong/declarative/kong.yml
-      - ./kong-bff-plugin/plugin:/usr/local/share/lua/5.1/kong/plugins/bff-token
+      - ./oauth-proxy-plugin/plugin:/usr/local/share/lua/5.1/kong/plugins/oauth-proxy
       - ./kong-phantom-token-plugin/plugin:/usr/local/share/lua/5.1/kong/plugins/phantom-token
     environment:
       KONG_DATABASE: 'off'
       KONG_DECLARATIVE_CONFIG: '/usr/local/kong/declarative/kong.yml'
       KONG_PROXY_LISTEN: '0.0.0.0:3000'
       KONG_LOG_LEVEL: 'info'
-      KONG_PLUGINS: 'bundled,bff-token,phantom-token'
+      KONG_PLUGINS: 'bundled,oauth-proxy,phantom-token'
 
   #
   # A SQL database used by the Curity Identity Server
