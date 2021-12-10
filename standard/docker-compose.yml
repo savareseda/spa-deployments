@@ -60,8 +60,11 @@ services:
       - 3000:3000
     volumes:
       - ./reverse-proxy/kong.yml:/usr/local/kong/declarative/kong.yml
-      - ./oauth-proxy-plugin/plugin:/usr/local/share/lua/5.1/kong/plugins/oauth-proxy
       - ./kong-phantom-token-plugin/plugin:/usr/local/share/lua/5.1/kong/plugins/phantom-token
+      - ../oauth-proxy-plugin/plugin/oauth-proxy.lua:/usr/local/share/lua/5.1/kong/plugins/oauth-proxy/access.lua
+      - ../oauth-proxy-plugin/plugin/kong/handler.lua:/usr/local/share/lua/5.1/kong/plugins/oauth-proxy/handler.lua
+      - ../oauth-proxy-plugin/plugin/kong/schema.lua:/usr/local/share/lua/5.1/kong/plugins/oauth-proxy/schema.lua
+      - ../oauth-proxy-plugin/plugin/kong/oauth-proxy-1.0.0-1.rockspec:/usr/local/share/lua/5.1/kong/plugins/oauth-proxy/oauth-proxy-1.0.0-1.rockspec
     environment:
       KONG_DATABASE: 'off'
       KONG_DECLARATIVE_CONFIG: '/usr/local/kong/declarative/kong.yml'
