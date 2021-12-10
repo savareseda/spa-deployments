@@ -62,13 +62,6 @@ if [ $? -ne 0 ]; then
 fi
 
 #
-# Temporary code OAuth proxy plugin changes are merged
-#
-cd oauth-proxy-plugin
-git checkout feature/nginx-lua-oauth-proxy-plugin
-cd ..
-
-#
 # Also download the phantom token plugin for the reverse proxy
 #
 rm -rf kong-phantom-token-plugin
