@@ -26,7 +26,7 @@ services:
   plugins:
 
   # 1. The BFF plugin decrypts the secure cookie and forwards the opaque access token to the API endpoint
-  - name: bff-token
+  - name: oauth-proxy
     config:
       encryption_key: NF65meV>Ls#8GP>;!Cnov)rIPRoK^.NP
       cookie_name_prefix: example
