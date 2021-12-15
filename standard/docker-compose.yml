@@ -8,7 +8,7 @@ services:
     image: webhost:1.0.0
     hostname: webhost
     ports:
-      - 80:3000
+      - 3003:3000
     volumes:
       - ./webhost/config.json:/usr/webhost/config.json
       - ./spa/config.json:/usr/webhost/content/config.json
@@ -39,9 +39,9 @@ services:
     environment:
       PORT: 3001
       TRUSTED_WEB_ORIGIN: 'http://www.example.com'
-      AUTHORIZE_ENDPOINT: 'http://login.example.com:8443/oauth/v2/oauth-authorize'
+      AUTHORIZE_ENDPOINT: 'http://login.example.com/oauth/v2/oauth-authorize'
       TOKEN_ENDPOINT: 'http://login-internal.example.com:8443/oauth/v2/oauth-token'
-      LOGOUT_ENDPOINT: 'http://login.example.com:8443/oauth/v2/oauth-session/logout'
+      LOGOUT_ENDPOINT: 'http://login.example.com/oauth/v2/oauth-session/logout'
       CLIENT_ID: 'spa-client'
       REDIRECT_URI: 'http://www.example.com/'
       POST_LOGOUT_REDIRECT_URI: 'http://www.example.com/'
@@ -93,10 +93,18 @@ services:
     hostname: login-internal.example.com
     ports:
      - 6749:6749
-     - 8443:8443
     volumes:
      - ./idsvr/license.json:/opt/idsvr/etc/init/license/license.json
      - ./idsvr/config-backup.xml:/opt/idsvr/etc/init/config.xml
      - ./idsvr/log4j2.xml:/opt/idsvr/etc/log4j2.xml
     environment:
       PASSWORD: 'Password1'
+
+  openresty:
+    image: openresty/openresty:1.19.9.1-bionic
+    hostname: openrestyserver
+    ports:
+      - 80:80
+    volumes:
+      - ../../nginx/nginx.conf:/usr/local/openresty/nginx/conf/nginx.conf
+      - ../../nginx/conf.d:/usr/local/openresty/nginx/conf/conf.d
