@@ -49,12 +49,16 @@ fi
 #
 cd ..
 rm -rf oauth-proxy-plugin
-git clone https://github.com/curityio/kong-bff-plugin oauth-proxy-plugin
-git checkout feature/cookie-updates
+git clone https://github.com/curityio/nginx-lua-oauth-proxy-plugin
 if [ $? -ne 0 ]; then
   echo "Problem encountered downloading the OAuth proxy plugin"
   exit 1
 fi
+
+# TODO: Remove after merge
+cd nginx-lua-oauth-proxy-plugin
+git checkout feature/cookie-updates
+cd ..
 
 #
 # Also download the phantom token plugin for the reverse proxy

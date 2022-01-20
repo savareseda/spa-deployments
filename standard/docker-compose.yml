@@ -54,7 +54,7 @@ services:
   # The Kong reverse proxy exposes API endpoints to the browser at http://api.example.com:3000
   #
   reverse-proxy:
-    image: kong:2.5.0-alpine
+    image: kong:2.6.0-alpine
     hostname: reverseproxy
     ports:
       - 3000:3000
