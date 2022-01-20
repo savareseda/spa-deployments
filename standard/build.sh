@@ -25,6 +25,7 @@ if [ $? -ne 0 ]; then
 fi
 
 cd token-handler-api
+git checkout feature/cookie-updates
 npm install
 if [ $? -ne 0 ]; then
   echo "Problem encountered installing the Token Handler API dependencies"
@@ -49,6 +50,7 @@ fi
 cd ..
 rm -rf oauth-proxy-plugin
 git clone https://github.com/curityio/kong-bff-plugin oauth-proxy-plugin
+git checkout feature/cookie-updates
 if [ $? -ne 0 ]; then
   echo "Problem encountered downloading the OAuth proxy plugin"
   exit 1
