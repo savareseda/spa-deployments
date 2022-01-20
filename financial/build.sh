@@ -38,6 +38,10 @@ if [ $? -ne 0 ]; then
 fi
 
 cd token-handler-api
+
+# TODO: Remove after merge
+git checkout feature/cookie-updates
+
 ./gradlew bootJar
 if [ $? -ne 0 ]; then
   echo "Problem encountered building the Token Handler API's Java code"
