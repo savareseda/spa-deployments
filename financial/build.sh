@@ -33,7 +33,7 @@ fi
 rm -rf token-handler-api
 git clone https://github.com/curityio/token-handler-kotlin-spring-fapi token-handler-api
 if [ $? -ne 0 ]; then
-  echo "Problem encountered downloading the token handler API"
+  echo "Problem encountered downloading the token handl+er API"
   exit 1
 fi
 
