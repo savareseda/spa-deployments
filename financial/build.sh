@@ -55,14 +55,14 @@ fi
 #
 cd ..
 rm -rf oauth-proxy-plugin
-git clone https://github.com/curityio/nginx-lua-oauth-proxy-plugin
+git clone https://github.com/curityio/nginx-lua-oauth-proxy-plugin oauth-proxy-plugin
 if [ $? -ne 0 ]; then
   echo "Problem encountered downloading the OAuth proxy plugin"
   exit 1
 fi
 
 # TODO: Remove after merge
-cd nginx-lua-oauth-proxy-plugin
+cd oauth-proxy-plugin
 git checkout feature/cookie-updates
 cd ..
 
