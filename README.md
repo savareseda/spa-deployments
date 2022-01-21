@@ -37,7 +37,7 @@ Start with the main SPA repository, and follow the instructions in these pages:
 
 See the following repositories for further details on how to extend a token handler:
 
-- [Standard Token Handler in Node.js](https://github.com/curityio/bff-node-express)
+- [Standard Token Handler in Node.js](https://github.com/curityio/token-handler-node-express)
 - [Financial-grade Token Handler in Kotlin](https://github.com/curityio/token-handler-kotlin-spring-fapi)
 
 ## More Information

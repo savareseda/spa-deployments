@@ -10,5 +10,6 @@
 cd "$(dirname "${BASH_SOURCE[0]}")"
 
 #
-# The standard token handler does not use detached mode so there is nothing to do
+# Free the Docker resources
 #
+docker compose --project-name spa down

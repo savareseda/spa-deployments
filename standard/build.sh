@@ -18,7 +18,7 @@ cp ../hooks/pre-commit ../.git/hooks
 # Get and build the main Token Handler API (aka 'OAuth Agent')
 #
 rm -rf token-handler-api
-git clone https://github.com/curityio/bff-node-express token-handler-api
+git clone https://github.com/curityio/token-handler-node-express token-handler-api
 if [ $? -ne 0 ]; then
   echo "Problem encountered downloading the token handler API"
   exit 1
@@ -48,7 +48,7 @@ fi
 #
 cd ..
 rm -rf oauth-proxy-plugin
-git clone https://github.com/curityio/kong-bff-plugin oauth-proxy-plugin
+git clone https://github.com/curityio/nginx-lua-oauth-proxy-plugin oauth-proxy-plugin
 if [ $? -ne 0 ]; then
   echo "Problem encountered downloading the OAuth proxy plugin"
   exit 1

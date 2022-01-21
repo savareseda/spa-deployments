@@ -143,17 +143,9 @@ openssl pkcs12 \
     -passout pass:$TRUSTSTORE_PASSWORD
 echo '*** Successfully exported root CA to a PKCS#12 file'
 
-#openssl pkcs12 \
-#    -export \
-#    -nokeys \
-#    -in $TRUSTSTORE_FILE_PREFIX.pem \
-#    -out $TRUSTSTORE_FILE_PREFIX.p12 \
-#    -passout pass:$TRUSTSTORE_PASSWORD
-#echo '*** Successfully exported root CA to a PKCS#12 file'
-
 #
 # Remove files we no longer need
 #
 rm example.server.csr
 rm example.client.csr
-rm example.srl
+rm example.ca.srl
