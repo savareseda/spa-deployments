@@ -25,10 +25,6 @@ if [ $? -ne 0 ]; then
 fi
 
 cd token-handler-api
-
-# TODO: Remove after merge
-git checkout feature/cookie-updates
-
 npm install
 if [ $? -ne 0 ]; then
   echo "Problem encountered installing the Token Handler API dependencies"
@@ -57,11 +53,6 @@ if [ $? -ne 0 ]; then
   echo "Problem encountered downloading the OAuth proxy plugin"
   exit 1
 fi
-
-# TODO: Remove after merge
-cd oauth-proxy-plugin
-git checkout feature/cookie-updates
-cd ..
 
 #
 # Also download the phantom token plugin for the reverse proxy
