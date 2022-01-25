@@ -22,13 +22,6 @@ services:
   - name: business-api-route
     paths:
     - /api
-    cors_enabled: true
-    cors_allowed_methods:
-    - 'GET'
-    - 'POST'
-    cors_allowed_headers: []
-    cors_exposed_headers: []
-    cors_max_age: 86400
 
   plugins:
 
@@ -39,6 +32,13 @@ services:
       encryption_key: 4e4636356d65563e4c73233847503e3b21436e6f7629724950526f4b5e2e4e50
       trusted_web_origins:
       - http://www.example.com
+      cors_enabled: true
+      cors_allowed_methods:
+      - 'GET'
+      - 'POST'
+      cors_allowed_headers: []
+      cors_exposed_headers: []
+      cors_max_age: 86400
   
   # 2. The phantom token plugin will run after the secure cookie plugin, to introspect tokens
   - name: phantom-token
