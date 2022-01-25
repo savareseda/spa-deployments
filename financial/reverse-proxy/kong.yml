@@ -25,13 +25,20 @@ services:
 
   plugins:
 
-  # 1. The BFF plugin decrypts the secure cookie and forwards the opaque access token to the API endpoint
+  # 1. The OAuth proxy plugin decrypts the secure cookie and forwards the opaque access token to the API endpoint
   - name: oauth-proxy
     config:
       encryption_key: 4e4636356d65563e4c73233847503e3b21436e6f7629724950526f4b5e2e4e50
       cookie_name_prefix: example
       trusted_web_origins:
       - https://www.example.com
+      cors_enabled: true
+      cors_allowed_methods:
+      - 'GET'
+      - 'POST'
+      cors_allowed_headers: []
+      cors_exposed_headers: []
+      cors_max_age: 86400
   
   # 2. The phantom token plugin will run after the secure cookie plugin, to introspect tokens
   - name: phantom-token
