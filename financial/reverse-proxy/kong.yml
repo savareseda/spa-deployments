@@ -33,14 +33,6 @@ services:
       trusted_web_origins:
       - https://www.example.com
       cors_enabled: true
-      cors_allowed_methods:
-      - 'OPTIONS'
-      - 'GET'
-      - 'POST'
-      cors_allowed_headers:
-      - 'x-example-csrf'
-      cors_exposed_headers: []
-      cors_max_age: 86400
 
   # 2. The phantom token plugin will run after the secure cookie plugin, to introspect tokens
   - name: phantom-token
