@@ -20,7 +20,7 @@ fi
 #
 # Spin up all containers, using the Docker Compose file, which applies the deployed configuration
 #
-docker compose --project-name spa up --force-recreate --detach --remove-orphans
+docker-compose -p spa up --force-recreate --detach --remove-orphans
 if [ $? -ne 0 ]; then
   echo "Problem encountered starting Docker components"
   exit 1

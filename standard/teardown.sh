@@ -12,4 +12,4 @@ cd "$(dirname "${BASH_SOURCE[0]}")"
 #
 # Free the Docker resources
 #
-docker compose --project-name spa down
+docker-compose -p spa down
